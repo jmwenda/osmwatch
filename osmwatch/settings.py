@@ -9,14 +9,14 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.contrib.gis.db.backends.postgis",
-        "NAME": "osmnairobi",
-        "USER": "osmnairobi",
-        "PASSWORD": "osmnairobi",
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
-    }
+  'default': {
+      'ENGINE': 'django.db.backends.sqlite3',
+      'NAME': os.path.join(PROJECT_ROOT, 'dev.db'),
+      'USER': '',             # Not used with sqlite3.
+      'PASSWORD': '',         # Not used with sqlite3.
+      'HOST': '',             # Not used with sqlite3.
+      'PORT': '',             # Not used with sqlite3.
+  }
 }
 
 # Local time zone for this installation. Choices can be found here:
@@ -186,3 +186,7 @@ ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 2
 AUTHENTICATION_BACKENDS = [
     "account.auth_backends.UsernameAuthenticationBackend",
 ]
+try:
+  from local_settings import *
+except ImportError:
+  pass
