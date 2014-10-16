@@ -10,8 +10,12 @@ TEMPLATE_DEBUG = DEBUG
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "dev.db",
+        "ENGINE": "django.contrib.gis.db.backends.postgis",
+        "NAME": "osmnairobi",
+        "USER": "osmnairobi",
+        "PASSWORD": "osmnairobi",
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
     }
 }
 
@@ -120,6 +124,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.sites",
     "django.contrib.staticfiles",
+    "django.contrib.gis",
 
     # theme
     "bootstrapform",
@@ -129,6 +134,8 @@ INSTALLED_APPS = [
     "account",
     "eventlog",
     "metron",
+    "south",
+    "cities",
 
     # project
     "osmwatch",
